@@ -4,3 +4,6 @@ My first attempt at a port was eventually discarded when I moved from working on
 DISCLAIMER: I have never actually used this port--I just knocked it together over a couple of hours ofter I realized Matheusfx wanted it. Consequently, my tests consist exclusively of "can it be made to run without throwing errors;" I have not tried to introduce movement code to see if I made any mistakes. If you find any mistakes or errors, I will gladly fix them.
 
 OTHER DISCLAIMER: I don't have almost any of the other parts of the Sebastian Lague Platformer. I could probably make an attempt to port the Moving Platforms code, but as I recall, that one gave me a bit of execution-order trouble...and as for movement code, I cast out most of that and replaced it with my own, and I never even watched the camera tutorials. (Probably should do that at some point, eh? Just to learn what he considers to be important in a camera system....) So if you want any of those parts ported, you may want to make that happen yourself.
+
+
+Written for Unity 2018.3. Probably could be made to work with 2018.2 easily by simply removing all in markers from parameters.
