@@ -375,13 +375,15 @@ namespace SLPlatformer {
 					rayLength,
 					mask
 				);
-
 				//Draw horizontal collision rays.
 				Debug.DrawRay(
 					(Vector2)rayOrigin, //Casting to Vec2 lets Unity cast to Vec3...bleh.
 					Vector2.right * faceDir,// * rayLength,
 					Color.red
 				);
+				
+				//Make sure the next ray is higher than this one.
+				rayOrigin.y += rCon.raySeparation.x;
 
 				//If we didn't get a hit, nothing to do here.
 				if (!hit) {
@@ -422,9 +424,6 @@ namespace SLPlatformer {
 					collisions.left = faceDir == -1;
 					collisions.right = faceDir == 1;
 				}
-				
-				//Make sure the next ray is higher than this one.
-				rayOrigin.y += rCon.raySeparation.x;
 			}
 		}
 
@@ -456,13 +455,15 @@ namespace SLPlatformer {
 					rayLength,
 					mask
 				);
-
 				//Draw downward collision rays.
 				Debug.DrawRay(
 					rayOrigin,
 					Vector2.up * directionY * rayLength,
 					Color.red
 				);
+				
+				//Make sure the next ray is farther along than this one
+				rayOrigin.x += rCon.raySeparation.y;
 
 				if (hit) {
 					return;
@@ -478,9 +479,6 @@ namespace SLPlatformer {
 
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
-				
-				//Make sure the next ray is farther along than this one
-				rayOrigin.x += rCon.raySeparation.y;
 			}
 		}
 
