@@ -369,9 +369,6 @@ namespace SLPlatformer {
 			);
 			
 			for (int i = 0; i < rCon.rayCount.x; i++) {
-				//Make sure this ray is higher than the last.
-				rayOrigin.y += rCon.raySeparation.x;
-
 				RaycastHit2D hit = Physics2D.Raycast(
 					rayOrigin,
 					Vector2.right * faceDir,
@@ -425,6 +422,9 @@ namespace SLPlatformer {
 					collisions.left = faceDir == -1;
 					collisions.right = faceDir == 1;
 				}
+				
+				//Make sure the next ray is higher than this one.
+				rayOrigin.y += rCon.raySeparation.x;
 			}
 		}
 
@@ -450,8 +450,6 @@ namespace SLPlatformer {
 			rayOrigin.x += moveAmount.x;
 			
 			for (int i = 0; i < rCon.rayCount.y; i++) {
-				rayOrigin.x += rCon.raySeparation.y;
-
 				RaycastHit2D hit = Physics2D.Raycast(
 					rayOrigin,
 					Vector2.up * directionY,
@@ -480,6 +478,9 @@ namespace SLPlatformer {
 
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
+				
+				//Make sure the next ray is farther along than this one
+				rayOrigin.x += rCon.raySeparation.y;
 			}
 		}
 
