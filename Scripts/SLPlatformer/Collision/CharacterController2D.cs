@@ -157,13 +157,6 @@ namespace SLPlatformer {
 						mask
 					);
 				}
-				//Update position.
-				{
-					float3 position = data.position[i].Value;
-					position.x += moveAmount.x;
-					position.y += moveAmount.y;
-					data.position[i] = new Position {Value = position};
-				}
 
 				collisions.below |= em.HasComponent(data.entities[i], typeof(ForceGrounded));
 
