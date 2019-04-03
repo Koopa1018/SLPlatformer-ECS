@@ -142,7 +142,7 @@ namespace SLPlatformer {
 					mask
 				);
 				//Do vertical collisions only if moving vertically.
-				if (moveAmount.y != 0)
+				if (moveAmount.y != 0) {
 					VerticalCollisions(
 						ref moveAmount,
 						ref collisions,
@@ -156,6 +156,8 @@ namespace SLPlatformer {
 						data.raycastController[i].bottomCorners,
 						mask
 					);
+				}
+				//Update position.
 				{
 					float3 position = data.position[i].Value;
 					position.x += moveAmount.x;
